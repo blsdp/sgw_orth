@@ -1,0 +1,272 @@
+# Morphological Transducer for Sebat Bet Gurage
+
+# Part of speech categories
+# <n>      # Noun
+# <v>      # Verb
+# <adj>    # Adjective
+# <num>    # Numeral
+# <prn>    # Pronoun
+# <adv>    # Adverb
+# <post>   # Postposition
+# <inj>    # Interjection
+# <pre>    # Preposition
+# <cn>     # Conjunction
+
+# Case 
+# <ben>    # Benefactive
+# <man>    # Manner
+# <all>    # Allative
+# <gen>    # Genetive
+# <acc>    # Accusative
+
+# Aspects
+# <perf>   # Perfect
+# <cont>   # Continuous
+# <jus>    # Jussive
+# <neg>    # Negation
+
+
+# Types of Verbs
+# <conv>   # Converbs
+# <eq>   # Equatives
+
+# Prespective 
+# <p1>   # 1st Person
+# <p2>   # 2nd Person
+# <p3>   # 3rd Person
+
+#Gender
+# <m>   # Masculine
+# <f>   # Feminine
+
+#Other
+# <impers>  # Impersonal
+
+
+# <sent>   # Sentence-ending punctuation
+# <guio>   # Hyphen
+# <cm>     # Comma
+# <apos>   # Apostrophe
+# <quot>   # Quotation mark
+# <lquot>  # Left quotation mark
+# <rquot>  # Right quotation mark
+# <lpar>   # Left parenthesis
+# <rpar>   # Right parenthesis
+
+# Number morphology
+# <pl>     # Plural
+# <sg>     # Singular
+
+# Other symbols
+# >        # Morpheme boundary
+
+###############################################################################
+###                       M O R P H O T A C T I C S                         ###
+###############################################################################
+
+PATTERNS
+Nouns
+Verbs 
+Interjection
+Pronoun
+Adjective
+
+PATTERN Nouns
+
+Cases?(1) N-Stems [ <n>: ] Possession? Cases?(2) 
+
+LEXICON Possession
+
+<px1sg>:>{ኧ}ና
+<px1pl>:>{ኧ}ንዳ
+<px2sgm>:>{አ}ሐ
+<px2sgf>:>{አ}ሕይ
+<px3sgm>:>{ኧ}ታ
+<px3sgf>:>{ኧ}ሕይታ
+<px2plm>:>{አ}ሑ
+<px2plf>:>{አ}ሕማ
+<px3plm>:>{አ}ሑና
+<px3plf>:>{አ}ሕንማ
+<px3m>:>𞟫ት
+
+LEXICON Cases(2)
+:የ <gen>:
+:የ <acc>:
+:የ <ben>:
+:በ <loc>:
+:የ <man>:
+:የ <all>:
+
+
+PATTERN Verbs
+
+#:V-Aspect(1)? V-JStems [<v>:] V-Suffix? V-PerfectAspect? V-Aspect(2)
+(V-Aspect(1) V-Stems [<v>:] V-Aspect(2))[^[Cont,Perf]]
+
+LEXICON V-Aspect(2)
+:ን <p1><jus><sg>:
+:የ <m><p3><jus><sg>:
+:ት <f><p3><jus>:
+:ኧ[Cont] <cont><p1><sg>:[Cont]
+:ት[Cont] <cont><p2>:[Cont]
+:ባነ[Cont] <cont><past>:[Cont]
+:[Perf] <perf><p1><sg>:ሑም[Perf]
+
+
+LEXICON V-Negation (2)
+:አ{ት} <neg>:
+
+#{v}> <v><p1><pl>: {v}> #different
+#:{v}> <v><m><p3><jus><pl>: {v}>
+#:{v}> <v><f><p3><jus><pl>: {v}>
+
+LEXICON V-Suffix
+<pl>:ነ
+
+LEXICON V-PerfectAspect
+<p1><sg><perf>:ሑም
+<m><p2><sg><perf>:ሐ
+<f><p2><sg><perf>:𞟥ም
+<m><p3><sg><perf>:ም
+<f><p3><sg><perf>:ችም
+<p1><pl><perf>:ነም
+<m><p2><pl><perf>:ሑም
+<f><p2><pl><perf>:ሕማም
+<m><p3><pl><perf>:ቮም
+<f><p3><p1><perf>:ማም
+<impers><perf>:ችም
+
+
+PATTERN Interjection
+Interjection-Stem [<intj>:]
+
+PATTERN Pronoun
+Pronoun-Stem(1) [<prn>:] Pronoun-Stem(2)
+
+PATTERN Adjective
+Adjective-Stem [<adj>:]
+###############################################################################
+###                          L E X I C O N                                  ###
+###############################################################################
+
+LEXICON N-Stems
+
+ቭራ:ቭራ     
+ቤት:ቤት   # "house"
+ኧርች:ኧርች   # "boy"
+ሰብ:ሰብ
+ቕጫ:ቕጫ
+እማቴ:እማቴ
+ትዛዛሐ:ትዛዛሐ#commandments?
+እግዘሮ:እግዘሮ
+ን𞟺ስ:ን𞟺ስ
+ዳንኤል:ዳንኤል
+መንግስት:መንግስት#goverment 
+ጠሎት:ጠሎት#prayer
+ጐት:ጐት
+ተስፋ:ተስፋ#
+ቃር:ቃር
+ነብስ:ነብስ
+ክፍል:ክፍል
+የሩሳሌም:የሩሳሌም
+መስኮት:መስኮት
+ሜና:ሜና #work
+ዊነት:ዊነት#grief
+እማቴ:እማቴ #people/advisor
+ኤያጘኽር:ኤያጘኽር#worthless
+ሜዶን:ሜዶን #medes
+ፋርስ:ፋርስ#persians
+ኤነት:ኤነት#way
+አተድሮት:አተድሮት#leaders(pl)
+ምራኽር:ምራኽር   #mercifulness
+ኼነታኸ:ኼነታኸ #gracefullness
+ዳርዮስ:ዳርዮስ #name #darius
+አዋጅ:አዋጅ #law
+
+
+LEXICON Adjective-Stem
+ወግ:ወግ#splendid, marvelous
+ዝም:ዝም# same
+
+
+LEXICON V-Stems
+ወሮም:ወሮም
+በናም:በና[Perf]
+በናም:ቨ{ራ}[Cont]
+ያሐ:ያሐ
+ንበር:ንበር  #live
+ᎈረᎃᎌም:ᎈረᎃᎌም
+ገፓም:ገፓም
+ወጠቅ𞟫ም:ወጠቅ𞟫ም #cling
+ኧግዜ:ኧግዜ #help
+ይገቤሐማ:ይገቤሐማ # not root but understand  
+ሳቢም:ሳቢም #because???
+አጫምትሸ:አጫምትሸ #will meditate on?
+አትቋምኒ:አትቋምኒ# do? Do this?
+ኧረ𞟱:ኧረ𞟱 #put farther away from me (Put far from me)
+ደረገና:ደረገና  #do??
+አትቋምኒ:አትቋምኒ# don’t know 
+ወሮም:ወሮም #said?
+ጠበቀም:ጠበቀም #make it stand still/ strudy/ cling on to it’s originality
+ኤትሽጋከርም:ኤትሽጋከርም #unchanging 
+ፈርም:ፈርም #siggn 
+ሐማ:ሐማ #become??
+ፍርዳ:ፍርዳ #judge 
+ቃሩ:ቃሩ #is/are
+ትንሰር𞟺ን:ትንሰር𞟺ን #dread/fear??? Not root word
+አትመሬ:አትመሬ #teach me
+
+LEXICON Interjection-Stem
+እግዘሮ:እግዘሮ
+ሔታ:ሔታ
+
+LEXICON Pronoun-Stem(2)
+አሐ:አሐ      <dem>:
+ዝሕ:ዝሕ      <dem>:    #this
+እያ:እያ      <dem>:
+
+
+PATTERN Number
+Numeral [<num>:]
+
+LEXICON Numeral
+/([0123456789])+/
+/([0123456789])+[.,]([0123456789])+/
+
+LEXICON Punctuation
+
+.<sent>:.
+።<sent>:።
+..<sent>:..
+...<sent>:...
+;<sent>:;
+\:<sent>:\:
+!<sent>:!
+-<guio>:-
+—<guio>:—
+,<cm>:,
+?<sent>:? 
+'<apos>:'
+"<quot>:"
+«<lquot>:«
+»<rquot>:»
+”<rquot>:”
+“<lquot>:“
+(<lpar>:(
+\]<rpar>:\]
+\[<lpar>:\[
+)<rpar>:)
+\\<sent>:\\
+\/<sent>:\/
+
+
+# Resources:
+# https://github.com/apertium/lexd/blob/master/Usage.md
+# https://wiki.apertium.org/wiki/List_of_symbols
+# https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+# https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+# https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+# https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+# https://github.com/hfst/
+# https://wiki.apertium.org/wiki/Hfst
+

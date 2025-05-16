@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+srcdir=@datarootdir@/apertium/apertium-sgw
+
+Name: apertium-sgw
+Description: Finite-state morphological transducer and constraint grammar for Sebat Bet Gurage
+Version: @VERSION@
+
